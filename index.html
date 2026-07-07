@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Role Overlap &amp; Interaction Map — AOS</title>
+<meta name="description" content="See where your roles concentrate, overlap, and leave gaps. The Role Overlap &amp; Interaction Map reads your accountability chart, scorecard, and rocks — then ALP Think turns it into plain findings and moves. Live in AOS." />
+<!-- social preview -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="See what your accountability chart is hiding — the Role Overlap Map" />
+<meta property="og:description" content="Reads your chart, scorecard &amp; rocks and shows who's overloaded, where ownership doubles up, and where seats have no owner. ALP Think writes the findings and the moves." />
+<meta property="og:image" content="https://mwilkinson82.github.io/overlap-map-landing/poster.jpg" />
+<meta property="og:url" content="https://mwilkinson82.github.io/overlap-map-landing/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="See what your accountability chart is hiding — the Role Overlap Map" />
+<meta name="twitter:description" content="Who's overloaded, where ownership doubles up, where seats have no owner — mapped from your chart, with the moves to fix it." />
+<meta name="twitter:image" content="https://mwilkinson82.github.io/overlap-map-landing/poster.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#F7F2EA; --surface:#F8F4ED; --ink:#1C1A17; --signal:#F76A16;
+    --edge:#DCD5C8; --muted:#6B655D; --dark:#0e0c0a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--cream); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400;line-height:1.05}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-weight:700;font-size:12px;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--signal)}
+  a{color:inherit}
+
+  /* HERO (dark) */
+  .hero{background:radial-gradient(120% 120% at 50% 0%,#1b1714 0%,var(--dark) 70%);
+    color:var(--cream);padding:54px 0 64px;text-align:center;position:relative}
+  .hero .eyebrow{color:#F9A05C}
+  .hero h1{font-size:clamp(38px,6vw,72px);margin:14px auto 10px;max-width:14ch;
+    text-wrap:balance;color:#F7ECD8}
+  .hero p.sub{font-size:clamp(16px,2vw,20px);color:#C9BCA6;max-width:56ch;margin:0 auto 30px}
+
+  /* video */
+  .videowrap{position:relative;max-width:940px;margin:0 auto;padding:14px}
+  .videowrap video{width:100%;display:block;border-radius:14px;
+    box-shadow:0 30px 70px rgba(0,0,0,.5);background:#000}
+  .bracket{position:absolute;width:26px;height:26px;border:2px solid var(--signal);opacity:.85;pointer-events:none}
+  .bracket.tl{top:0;left:0;border-right:0;border-bottom:0}
+  .bracket.br{bottom:0;right:0;border-left:0;border-top:0}
+
+  /* buttons */
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:16px;
+    padding:14px 26px;border-radius:10px;text-decoration:none;transition:transform .12s ease,opacity .12s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--signal);color:#fff}
+  .btn-ghost{background:transparent;color:var(--cream);border:1.5px solid rgba(255,255,255,.28)}
+  .btn-ghost:hover{border-color:var(--signal);color:#F9A05C}
+  .btn-dark{background:var(--ink);color:var(--cream)}
+
+  /* sections */
+  section.band{padding:64px 0}
+  .lead{font-size:clamp(20px,2.6vw,28px);max-width:30ch;text-wrap:balance}
+  .section-title{font-size:clamp(28px,4vw,44px);margin:0 0 8px}
+  .muted{color:var(--muted)}
+
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+  .card{background:var(--surface);border:1px solid var(--edge);border-radius:14px;padding:22px}
+  .card h3{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:24px;margin:6px 0 6px}
+  .card p{margin:0;font-size:15px;color:var(--muted)}
+  .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+
+  .think{background:var(--ink);color:var(--cream);border-radius:18px;padding:40px;margin-top:8px}
+  .think .eyebrow{color:#F9A05C}
+  .think h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(26px,3.4vw,38px);margin:10px 0 12px;color:#F7ECD8}
+  .think p{color:#C9BCA6;max-width:62ch}
+  .pills{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .pill{font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.04em;
+    padding:8px 14px;border-radius:999px;background:rgba(247,106,22,.14);color:#F9A05C;border:1px solid rgba(247,106,22,.35)}
+
+  .reasons{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+  .reason{padding:20px;border:1px solid var(--edge);border-radius:12px;background:var(--surface)}
+  .reason .n{font-family:"Instrument Serif",Georgia,serif;font-size:34px;color:var(--signal);line-height:1}
+  .reason b{display:block;margin-top:6px;font-size:16px}
+  .reason span{font-size:14px;color:var(--muted)}
+
+  /* final CTA */
+  .final{background:radial-gradient(120% 120% at 50% 100%,#1b1714 0%,var(--dark) 70%);
+    color:var(--cream);text-align:center;padding:64px 0}
+  .final h2{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:clamp(30px,4.5vw,52px);margin:0 0 8px;color:#F7ECD8}
+  .final p{color:#C9BCA6;margin:0 0 26px}
+  .builds{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:26px;color:var(--muted);font-size:15px}
+
+  footer{background:var(--dark);color:#8a8272;text-align:center;padding:26px 0;font-size:13px}
+  footer a{color:#b7ad9c;text-decoration:none}
+
+  @media (max-width:720px){
+    .grid3,.reasons{grid-template-columns:1fr}
+    .hero{padding:40px 0 48px}
+    section.band{padding:44px 0}
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="eyebrow">New in AOS · ALP Operating System</div>
+      <h1 class="serif">See what your accountability chart is hiding.</h1>
+      <p class="sub">The <strong>Role Overlap &amp; Interaction Map</strong> reads your accountability chart, scorecard, and rocks — and shows you where the work really concentrates, overlaps, and falls through the cracks.</p>
+
+      <div class="videowrap">
+        <span class="bracket tl"></span>
+        <video controls playsinline preload="metadata" poster="poster.jpg">
+          <source src="overlap-map.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video — <a href="overlap-map.mp4">watch it here</a>.
+        </video>
+        <span class="bracket br"></span>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://alpos.alpcontractorcircle.com/overlap-map">Open the Overlap Map →</a>
+        <a class="btn btn-ghost" href="https://alpos.alpcontractorcircle.com/">New here? Start free</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">What it is</div>
+      <p class="lead serif">Your org chart looks fine on paper. The work tells a different story.</p>
+      <p class="muted" style="max-width:64ch">Every seat's responsibilities get mapped to the functions they actually touch — then the map flags the structural problems you can't see in the boxes.</p>
+
+      <div class="grid3">
+        <div class="card">
+          <span class="dot" style="background:#B5432E"></span>
+          <h3>Who's carrying too much</h3>
+          <p>Overloaded seats and scorecard-metric pileups glow — so your next burnout is obvious before it happens.</p>
+        </div>
+        <div class="card">
+          <span class="dot" style="background:#9A6A00"></span>
+          <h3>Where ownership doubles up</h3>
+          <p>Two, three, four people "owning" the same work — the overlaps that quietly kill accountability.</p>
+        </div>
+        <div class="card">
+          <span class="dot" style="background:#F76A16"></span>
+          <h3>Where the gaps are</h3>
+          <p>Functions with no clear owner — the seams work slips through — surfaced as empty columns.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="think">
+        <div class="eyebrow">Powered by ALP Think</div>
+        <h2>The AI read you can't get from the boxes.</h2>
+        <p>ALP Think reads your workspace against your V/TO and writes the analysis in plain English — the findings <em>and</em> the moves to fix them. Every recommendation ladders back to the only three reasons to change anything:</p>
+        <div class="pills">
+          <span class="pill">Make money</span>
+          <span class="pill">Reduce risk</span>
+          <span class="pill">Create capacity</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:0">
+    <div class="wrap">
+      <div class="eyebrow">Three ways to see it</div>
+      <h2 class="section-title serif">One map. Three views.</h2>
+      <div class="reasons">
+        <div class="reason"><div class="n serif">01</div><b>Neural web</b><span>Your people and functions as a living map — overloaded seats glow and pull to the center.</span></div>
+        <div class="reason"><div class="n serif">02</div><b>Overlap matrix</b><span>A people × function grid — hot columns are overlaps, empty ones are gaps.</span></div>
+        <div class="reason"><div class="n serif">03</div><b>Org chart</b><span>A traditional chart with cross-function overlaps drawn in color.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h2 class="serif">It builds itself.</h2>
+      <p>No new data entry. The moment your accountability chart is filled in, the map is there.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://alpos.alpcontractorcircle.com/overlap-map">Open the Overlap Map →</a>
+        <a class="btn btn-ghost" href="https://alpos.alpcontractorcircle.com/">New here? Start free</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">AOS — the ALP Operating System for contractors · <a href="https://alpos.alpcontractorcircle.com/">alpos.alpcontractorcircle.com</a></div>
+  </footer>
+
+</body>
+</html>
