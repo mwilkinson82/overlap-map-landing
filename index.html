@@ -4,6 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Role Overlap &amp; Interaction Map — AOS</title>
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
 <meta name="description" content="See what your org chart is hiding. The Role Overlap & Interaction Map reads your accountability chart, scorecard, and rocks — then ALP Think turns it into plain findings and moves. Live in AOS." />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="See what your org chart is hiding — the Role Overlap Map" />
@@ -87,19 +94,32 @@
   .view b{display:block;font-size:19px;margin:8px 0 6px}
   .view span{color:var(--muted);font-size:15px}
 
-  .final{text-align:center;padding:100px 0}
+  .final{text-align:center;padding:100px 28px}
   .final h2{font-size:clamp(40px,6.5vw,80px);margin:0 auto 14px;max-width:16ch}
   .final p{color:var(--muted);font-size:20px;margin:0 auto 34px;max-width:40ch}
 
-  footer{border-top:1px solid var(--edge);padding:30px 0;color:var(--muted);font-size:14px;text-align:center}
-  footer a{color:var(--ink);text-decoration:none}
+  /* big AOS footer */
+  .bigfoot{background:var(--paper);border-top:1px solid var(--edge);padding:60px 0 0;overflow:hidden}
+  .foot-top{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+  .foot-tag{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink)}
+  .foot-rule{border:0;border-top:1px solid var(--edge);margin:22px 0 0}
+  .wordmark{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;letter-spacing:-.045em;line-height:.9;color:var(--ink);font-size:clamp(96px,26vw,420px);margin:8px 0 0;user-select:none}
+  .wordmark .dot{color:var(--signal)}
+  .footbar{background:var(--dark);color:#C9BEAD}
+  .footbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;padding-top:20px;padding-bottom:20px;font-family:"JetBrains Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .footbar a{color:#C9BEAD;text-decoration:none}.footbar a:hover{color:#fff}
+  .footbar .foot-links{display:flex;gap:22px;flex-wrap:wrap}
 
   @media (max-width:760px){
     .cols{grid-template-columns:1fr;gap:22px}
     .views{grid-template-columns:1fr}
     .view{padding:24px 0}
-    section{padding:60px 0}
+    section{padding:64px 0}
     .hero{padding:34px 0 26px}
+    .final{padding:60px 22px}
+    .wordmark{font-size:34vw;margin-top:2px}
+    .footbar .wrap{flex-direction:column;text-align:center;gap:10px;padding-top:16px;padding-bottom:16px}
+    .footbar .foot-links{justify-content:center;gap:16px}
   }
 </style>
 </head>
@@ -154,7 +174,7 @@
   </section>
 
   <!-- ALP Think -->
-  <section class="wrap" style="padding-top:0">
+  <section class="wrap" style="padding-top:clamp(28px,5vw,44px)">
     <div class="think reveal">
       <div class="eyebrow">Powered by ALP Think</div>
       <h2 class="serif">The AI read you can't get from the boxes.</h2>
@@ -168,7 +188,7 @@
   </section>
 
   <!-- Three views -->
-  <section class="wrap" style="padding-top:0">
+  <section class="wrap" style="padding-top:clamp(28px,5vw,44px)">
     <div class="eyebrow reveal">Three ways to see it</div>
     <h2 class="lead serif reveal">One map. Three views.</h2>
     <div class="views">
@@ -190,8 +210,25 @@
     </div>
   </section>
 
-  <footer>
-    <div class="wrap">AOS — the ALP Operating System for contractors · <a href="https://alpos.alpcontractorcircle.com/">alpos.alpcontractorcircle.com</a></div>
+  <footer class="bigfoot">
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-tag">See what your org chart is hiding.</div>
+        <a class="btn btn-primary" href="https://alpos.alpcontractorcircle.com/overlap-map">Open the Overlap Map →</a>
+      </div>
+      <hr class="foot-rule" />
+      <div class="wordmark">AOS<span class="dot">.</span></div>
+    </div>
+    <div class="footbar">
+      <div class="wrap">
+        <span>© 2026 ALP Contractor Circle · AOS — an ALP Labs product</span>
+        <span class="foot-links">
+          <a href="https://startaos.com/">AOS Home</a>
+          <a href="https://alpos.alpcontractorcircle.com/overlap-map">Overlap Map</a>
+          <a href="https://alpos.alpcontractorcircle.com/">Sign in</a>
+        </span>
+      </div>
+    </div>
   </footer>
 
   <script>
